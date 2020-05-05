@@ -1,25 +1,25 @@
 language: node_js
 node_js:
-  - stable
+- stable
 cache:
   directories:
   - node_modules
   - functions/node_modules
 script:
-  - echo 'REACT_APP_API_KEY='$API_KEY >> .env
-  - echo 'REACT_APP_SENDER_ID='$SENDER_ID >> .env
-  - echo 'REACT_APP_APP_ID='$APP_ID >> .env
-  - cat .env
-  - cd functions; npm i; cd ..
-  - eslint src/**
-  - eslint functions/index.js
-  - npm test
-  - npm run build
+- echo 'REACT_APP_API_KEY='$API_KEY >> .env
+- echo 'REACT_APP_SENDER_ID='$SENDER_ID >> .env
+- echo 'REACT_APP_APP_ID='$APP_ID >> .env
+- cat .env
+- cd functions; npm i; cd ..
+- eslint src/**
+- eslint functions/index.js
+- npm test
+- npm run build
 deploy:
   provider: firebase
   skip_cleanup: true
   on:
     branch: master
   token:
-    secure: y1+vl3KHJiH/Xk8MexjYfQokPcSmNs7BP1YIqSCUZltPkro1HpyTOlPT/VjNgehI/XglEYtLhJTh/8wf+V841yvUSebfKPTZDZrIuoONjnv0u2sKk+qIzc5yHAfGsJHaSIPM0WqYr7+9xekUXFsU4/VGx83JIjxXJX7cvLs7GbjMB+3isQK5g3sxngkjIzG3zSAg0mKX8YzwQ16h+JG0o6EE639wFooWdnyh0oypcVM7Vko07hNpGSouL1BCCXSdqvDDcSgVM9ROEG7UbmNZE5aj3AdHTciBujhCgmBs9Y83gYuJvGmNKhCtyQ9/GKyAukwZQhRs3KiVOBY7HNigWTo4xTqRjBsvgKzTAXOxw3ifHhOYXhjDZn7XuVwX85/FBhGJck597UAOjgYug70JTU+QKTAQtd55wj2iMRMV+FWIIy7EntXAmC7OrUY6DpxizryJOJ/B5p4tkWl1grduJPTKr1PYFfw/6++dsoZIzCE8lR5eCDkH6hzedDvZqPMG9UEhs+dhCrMXGieiyjE2YJeb/ynnApIN9QGXCIt95YCaQBi4sW6Jz9A8OSNOzKTBy9IksXF1hVlOX1bTDXfeM3f1oiXVIzqoVF/VvA5qNwg5JQKbbq7GOOYOsh7Ho+g9NRscUYF/93mn1+qkmJa/nTKCspxkgMEzWZKb/ODgNmk=
+    secure: xYrcgib706RbKsVX7Y/64fZMJ4AbZnT74FTM4s082goN/tynFGkS62lMMJP9DVzdWFH1bpsLp4krYQtSS+OKEWP6qGrJcxqJYBMpjDqphIk5neQ1M4bRRAQttfGl7eRQABwYhdgt7DjKvZyy0p3FKCY3KcSWJDVe5Yee+r/El0wkrm5eeZZt5kEk8cMUfCSmPgpXYiRLTN8CyHQvAxt2VGMH6j3DR6P2r8zysgtRgFeWWsChmqsztrcdxi+3Xz5tNUMC+1efNzsQupIRBu563wAdteP93ip6SOVcemhDmxszzrZokbZ5Gjn9ED+TrkLYCeceoA4vHRxktBjWhROGAayyXjZA22g1AeXcRC2xHQMn55XjPWGZRUucIVyW2eeJA1159ry8Gfgh9DVOl8MaT4CnzqJpgi+GGHWj/AQXeciKNWNscf2iZsJprrcq6VuBL9TnOqY2//tXveCydzIJHA27FVw7MD8jaRMBMb+SfDjvrAnIpHo/+3WxhKwxqecEDvcSLvJMJWQMcnQGNiJghQ2DHpDJKyJH3jMMv0cEf8+arL3S7Gl0b44UBxD/0Ycem1ucthHEcLe3yT9It+YOUiTa2izSQ1e+7xBxCv8IrLgf9nxBJH7aixanGLNyFSVL6G/6WbmqbgHDKwH5wsaCKniridP8cMIedVvO7I85XNg=
   project: squadhaus
