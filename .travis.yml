@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - stable
+cache:
+  directories:
+  - node_modules
+  - functions/node_modules
+script:
+  - echo 'REACT_APP_API_KEY='$API_KEY >> .env
+  - echo 'REACT_APP_SENDER_ID='$SENDER_ID >> .env
+  - echo 'REACT_APP_APP_ID='$APP_ID >> .env
+  - cat .env
+  - cd functions; npm i; cd ..
+  - eslint src/**
+  - eslint functions/index.js
+  - npm test
+  - npm run build
+deploy:
+  provider: firebase
+  skip_cleanup: true
+  on:
+    branch: master
+  token:
+    secure: y1+vl3KHJiH/Xk8MexjYfQokPcSmNs7BP1YIqSCUZltPkro1HpyTOlPT/VjNgehI/XglEYtLhJTh/8wf+V841yvUSebfKPTZDZrIuoONjnv0u2sKk+qIzc5yHAfGsJHaSIPM0WqYr7+9xekUXFsU4/VGx83JIjxXJX7cvLs7GbjMB+3isQK5g3sxngkjIzG3zSAg0mKX8YzwQ16h+JG0o6EE639wFooWdnyh0oypcVM7Vko07hNpGSouL1BCCXSdqvDDcSgVM9ROEG7UbmNZE5aj3AdHTciBujhCgmBs9Y83gYuJvGmNKhCtyQ9/GKyAukwZQhRs3KiVOBY7HNigWTo4xTqRjBsvgKzTAXOxw3ifHhOYXhjDZn7XuVwX85/FBhGJck597UAOjgYug70JTU+QKTAQtd55wj2iMRMV+FWIIy7EntXAmC7OrUY6DpxizryJOJ/B5p4tkWl1grduJPTKr1PYFfw/6++dsoZIzCE8lR5eCDkH6hzedDvZqPMG9UEhs+dhCrMXGieiyjE2YJeb/ynnApIN9QGXCIt95YCaQBi4sW6Jz9A8OSNOzKTBy9IksXF1hVlOX1bTDXfeM3f1oiXVIzqoVF/VvA5qNwg5JQKbbq7GOOYOsh7Ho+g9NRscUYF/93mn1+qkmJa/nTKCspxkgMEzWZKb/ODgNmk=
+  project: squadhaus
