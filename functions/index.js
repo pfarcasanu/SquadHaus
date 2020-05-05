@@ -74,6 +74,7 @@ const sendChoreNotification = (users, house, chore) => {
   const days = chore.frequency.replace(/\s/g, '').split(',');
   if (days.includes(day)) {
     const userId = chore.userIDs[chore.curr];
+    if (!users[userId]) return;
     const userEmail = users[userId].email;
     const userName = chore.users[chore.curr];
     const header = `SquadHaus Reminder: ${chore.title}`;
@@ -93,7 +94,8 @@ const sendPaymentNotification = (users, house, payment) => {
   if (!payment.payerIDs || !payment.payeeID) return;
   const date = getCentralDate();
   if (payment.date === date.getDate()) {
-    const payerEmails = Object.values(payment.payerIDs).map((id) => users[id].email);
+    const payerEmails = Object.values(payment.payerIDs).map((id) => users[id] && users[id].email)
+      .filter((x) => x);
     const payerNames = Object.values(payment.payers);
     payerEmails.forEach((email, i) => {
       const header = `SquadHaus Reminder: ${payment.title}`;
