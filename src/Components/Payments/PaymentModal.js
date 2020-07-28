@@ -66,7 +66,6 @@ const NewPayment = ({ house, modalState }) => {
     setPayerUserIDs(userIDs);
   };
 
-
   return (
     <Modal active={modalState.modalVisible}>
       <Modal.Background onClick={() => onClose()} />

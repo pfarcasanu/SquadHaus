@@ -10,6 +10,4 @@ const config = {
   appId: process.env.REACT_APP_APP_ID,
 };
 
-console.log(config);
-
 export default config;
