@@ -37,3 +37,4 @@ Usually `npm run build` before this. Deploys what you have to firebase.
 **Accounts**
  - Cron Jobs: `https://cron-job.org/`
  - Email: `squadhaus.notifications@gmail.com`
+ - Password: `<redacted>`
