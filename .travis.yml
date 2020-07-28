@@ -9,6 +9,7 @@ script:
 - echo 'REACT_APP_API_KEY='$API_KEY >> .env
 - echo 'REACT_APP_SENDER_ID='$SENDER_ID >> .env
 - echo 'REACT_APP_APP_ID='$APP_ID >> .env
+- cat .env
 - cd functions; npm i; cd ..
 - eslint src/**
 - eslint functions/index.js
